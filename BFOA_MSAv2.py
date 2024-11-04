@@ -4,7 +4,7 @@ from chemiotaxis import chemiotaxis
 import numpy
 
 poblacion = []
-path = "C:\secuenciasBFOA\multiFasta.fasta"
+path = "multiFasta.fasta"
 numeroDeBacterias = 5
 numRandomBacteria = 1
 iteraciones = 30
@@ -16,10 +16,10 @@ tempBacteria = bacteria(path)            #bacteria temporal para validaciones
 original = bacteria(path)                #bacteria original sin gaps
 globalNFE = 0      #numero de evaluaciones de la funcion objetivo
 
-dAttr= 0.1 #0.1
-wAttr= 0.2 #0.2
+dAttr= 0.2 #0.1
+wAttr= 0.4 #0.2
 hRep=dAttr
-wRep= 10    #10
+wRep= 12    #10
 
 
 def clonaBest(veryBest, best):
@@ -73,6 +73,8 @@ for _ in range(iteraciones):                                                  #n
     chemio.insertRamdomBacterias(path, numRandomBacteria, poblacion)                #inserta  bacterias aleatorias
     print("poblacion: ",len(poblacion))
 
-
+resultado= "interaccion: "+str(veryBest.interaction)+"fitness: "+str(veryBest.fitness)+ " NFE:"+str(globalNFE)+"\n"
+with open('resultados.txt', 'a') as the_file:
+    the_file.write(resultado)
 veryBest.showGenome()
 validaSecuencias(path, veryBest)

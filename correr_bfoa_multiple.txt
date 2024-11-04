@@ -1,0 +1,1 @@
+for i in {1..30}; do py bfoa_msav2.py; done > /dev/null 2>&1

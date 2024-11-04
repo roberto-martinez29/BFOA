@@ -37,7 +37,7 @@ class bacteria():
             part2 = matrixCopy[seqnum][pos:]
             temp = "-".join([part1, part2])     #inserto gap
             matrixCopy[seqnum] = temp
-        matrixCopy = numpy.array(matrixCopy)   #convierto a numpy array de regreso para fijar tamaños
+        matrixCopy = numpy.array(matrixCopy)   #convierto a numpy array de regreso para fijar tamaï¿½os
         self.matrix.seqs = matrixCopy
         
         self.cuadra()
